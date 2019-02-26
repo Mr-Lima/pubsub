@@ -23,4 +23,10 @@ public class PubSub {
       topicSubscriberMap.put(topic, subscribers);
     }
   }
+
+  public void removeSubscriber(String topic, AbstractSubscriber subscriber) {
+
+    Set<AbstractSubscriber> subscribers = topicSubscriberMap.get(topic);
+    subscribers.remove(subscriber);
+  }
 }
