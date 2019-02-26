@@ -2,7 +2,9 @@ package aldev;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Map;
+import java.util.Queue;
 import java.util.Set;
 
 /**
@@ -11,6 +13,11 @@ import java.util.Set;
 public class PubSub {
 
   private Map<String, Set<AbstractSubscriber>> topicSubscriberMap = new HashMap<>();
+  private Queue<Message> messagesQueue = new LinkedList<>();
+
+  public void addMessage(Message message) {
+    messagesQueue.add(message);
+  }
 
   public void addSubscriber(String topic, AbstractSubscriber subscriber) {
 
