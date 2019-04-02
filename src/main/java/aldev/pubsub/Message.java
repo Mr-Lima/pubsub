@@ -1,4 +1,4 @@
-package aldev;
+package aldev.pubsub;
 
 /**
  * Message

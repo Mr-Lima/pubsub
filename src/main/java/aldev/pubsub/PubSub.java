@@ -1,5 +1,10 @@
-package aldev;
+package aldev.pubsub;
 
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.SocketAddress;
+import java.net.UnknownHostException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -15,9 +20,18 @@ public class PubSub {
 
   private Map<String, Set<AbstractSubscriber>> topicSubscriberMap = new HashMap<>();
   private Queue<Message> messagesQueue = new LinkedList<>();
+  private Thread workerQueue = new Thread(new Broadcaster());
+  private Socket clientSocket;
 
-  public void addMessage(Message message) {
+  public PubSub() throws UnknownHostException, IOException {
+    workerQueue.start();
+    clientSocket = new Socket("127.0.0.1", 80);
+
+  }
+
+  public void sendMessage(Message message) {
     messagesQueue.add(message);
+    workerQueue.notify();
   }
 
   public void addSubscriber(String topic, AbstractSubscriber subscriber) {
@@ -67,6 +81,23 @@ public class PubSub {
         messages.add(message);
         subscriber.setSubscriberMessages(messages);
       });
+    }
+  }
+
+  private class Broadcaster implements Runnable {
+
+    public void run() {
+
+      while (true) {
+        broadcast();
+        try {
+          workerQueue.wait();
+        } catch (InterruptedException e) {
+          // TODO Auto-generated catch block
+          e.printStackTrace();
+        }
+      }
+
     }
   }
 }

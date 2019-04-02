@@ -1,4 +1,4 @@
-package aldev;
+package aldev.pubsub;
 
 import java.util.ArrayList;
 import java.util.List;

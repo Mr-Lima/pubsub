@@ -1,0 +1,25 @@
+
+Server:
+  ✔ Mandar string @done(19-03-17 15:47)
+  ✔ Mandar json @done(19-03-17 16:54)
+  ☐ classe mensagem
+  ☐ metodo mandar mensagem
+
+Pubsub: 
+  ☐ implementar publisher
+  ☐ subscriber
+
+App: 
+  ✔ Cadastrar os serviços da empresa. Cada serviço possui um nome e uma sigla. @done(19-03-18 18:18)
+
+  ✔ Cadastrar os atendentes (matrícula, nome, guichê e unidade). @done(19-03-18 18:19)
+
+  ✔ Imprimir a senha do cliente (a senha é composta pela sigla do serviço e um número sequencial do serviço na unidade). @done(19-03-18 18:21)
+
+  ✔ Chamar a próxima senha. O sistema de exibir os seguintes dados: a próxima senha e o número do guichê em todas as TVs da empresa. Caso o cliente não esteja no local, o atendente deve informar que o cliente não compareceu. @done(19-03-18 18:26)
+
+  ✔ Exibir as senhas (senha, data e hora de geração da senha, e serviço) que ainda não foram atendidas. As senhas devem ser exibidas na ordem em que foram geradas. Funcionalidade do administrador. @done(19-03-18 18:33)
+
+  ✔ Exibir as senhas (senha, data e hora da geração e atendimento da senha, tempo de espera e serviço) que foram atendidas por um atendente. O sistema deve solicitar a matrícula do atendente. Funcionalidade do administrador. @done(19-03-18 18:36)
+
+  ✔ Cancelar uma senha que ainda não foi atendida, fazendo assim com que a mesma seja removida do sistema. Funcionalidade do administrador. @done(19-03-18 18:51)
